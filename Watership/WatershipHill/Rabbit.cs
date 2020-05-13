@@ -11,26 +11,19 @@ namespace WatershipHill
         static private List<string> maleNames = new List<string>() { "Bob", "Dan", "Greg"};
         static private List<string> femaleNames = new List<string>() { "Dana", "Anna", "Noa"};
 
-        private int age;
-        private Sex sex;
-        private Color color;
-        private string name;
+        private int _age;
+        private Sex _sex;
+        private Color _color;
+        private string _name;
  
         public Rabbit()
         {
-            this.age = 0;
-            this.sex = this.generateSex();
-            this.color = this.generateColor();
-            this.name = Rabbit.generateName(this.sex);
+            this._age = 0;
+            this._sex = this.generateSex();
+            this._color = this.generateColor();
+            this._name = Rabbit.generateName(this._sex);
         }
 
-        public Rabbit(int age, Sex sex, Color color, string name)
-        {
-            this.age = age;
-            this.sex = sex;
-            this.color = color;
-            this.name = name;
-        }
         static private string generateName(Sex sex)
         {
             if (sex == Sex.Male)
@@ -77,7 +70,7 @@ namespace WatershipHill
 
         public void declareBirth()
         {
-            Console.WriteLine(this.sex + " " + this.color + " Bunny " + this.name + " Was Born!");
+            Console.WriteLine(this._sex + " " + this._color + " Bunny " + this._name + " Was Born!");
         }
     }
 }

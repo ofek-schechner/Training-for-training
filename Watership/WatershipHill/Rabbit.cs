@@ -24,6 +24,7 @@ namespace WatershipHill
             this._name = Rabbit.generateName(this._sex);
         }
 
+        // Generates a name based on the rabbit's sex
         static private string generateName(Sex sex)
         {
             if (sex == Sex.Male)
@@ -36,6 +37,7 @@ namespace WatershipHill
             }
         }
 
+        // Generates a male rabbit's name
         static private string generateMaleName()
         {
             Random random = new Random();
@@ -43,6 +45,7 @@ namespace WatershipHill
             return Rabbit.maleNames[random.Next(Rabbit.maleNames.Count)];
         }
 
+        // Generates a female rabbit's name
         static private string generateFemaleName()
         {
             Random random = new Random();
@@ -50,6 +53,7 @@ namespace WatershipHill
             return Rabbit.femaleNames[random.Next(Rabbit.femaleNames.Count)];
         }
 
+        // Generates the rabbit's sex
         private Sex generateSex()
         {
             Random random = new Random();
@@ -59,6 +63,7 @@ namespace WatershipHill
             return (Sex) sexes.GetValue(random.Next(numOfSexes));
         }
 
+        // Generates the rabbit's color
         private Color generateColor()
         {
             Random random = new Random();
@@ -68,6 +73,7 @@ namespace WatershipHill
             return (Color)colors.GetValue(random.Next(numOfColors));
         }
 
+        // Prints thata new rabbit was born
         public void declareBirth()
         {
             Console.WriteLine(this._sex + " " + this._color + " Bunny " + this._name + " Was Born!");

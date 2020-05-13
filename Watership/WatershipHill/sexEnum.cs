@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
-    enum Sex
+    public enum Sex
     {
         Male,
         Female

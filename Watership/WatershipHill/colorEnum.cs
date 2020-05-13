@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
-    enum Color
+    public enum Color
     {
         White,
         Black,

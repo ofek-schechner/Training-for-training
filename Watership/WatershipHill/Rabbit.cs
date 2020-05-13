@@ -8,9 +8,6 @@ namespace WatershipHill
 {
     public class Rabbit
     {
-        static private List<string> maleNames = new List<string>() { "Bob", "Dan", "Greg"};
-        static private List<string> femaleNames = new List<string>() { "Dana", "Anna", "Noa"};
-
         private int _age;
         private Sex _sex;
         private Color _color;
@@ -29,28 +26,12 @@ namespace WatershipHill
         {
             if (sex == Sex.Male)
             {
-                return generateMaleName();
+                return RabbitManager.generateMaleName();
             }
             else
             {
-                return generateFemaleName();
+                return RabbitManager.generateFemaleName();
             }
-        }
-
-        // Generates a male rabbit's name
-        static private string generateMaleName()
-        {
-            Random random = new Random();
-
-            return Rabbit.maleNames[random.Next(Rabbit.maleNames.Count)];
-        }
-
-        // Generates a female rabbit's name
-        static private string generateFemaleName()
-        {
-            Random random = new Random();
-
-            return Rabbit.femaleNames[random.Next(Rabbit.femaleNames.Count)];
         }
 
         // Generates the rabbit's sex
@@ -70,13 +51,31 @@ namespace WatershipHill
             Array colors = Enum.GetValues(typeof(Color));
             int numOfColors = colors.Length;
 
-            return (Color)colors.GetValue(random.Next(numOfColors));
+            return (Color) colors.GetValue(random.Next(numOfColors));
         }
 
-        // Prints thata new rabbit was born
-        public void declareBirth()
+        // Returns the rabbit's age
+        public int age()
         {
-            Console.WriteLine(this._sex + " " + this._color + " Bunny " + this._name + " Was Born!");
+            return this._age;
+        }
+
+        // Returns the rabbit's sex
+        public Sex sex()
+        {
+            return this._sex;
+        }
+
+        // Returns the rabbit's color
+        public Color color()
+        {
+            return this._color;
+        }
+
+        // Returns the rabbit's name
+        public string name()
+        {
+            return this._name;
         }
     }
 }

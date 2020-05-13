@@ -11,7 +11,7 @@ namespace WatershipHill
         static void Main(string[] args)
         {
             Rabbit rabbit = new Rabbit();
-            rabbit.declareBirth();
+            RabbitManager.declareBirth(rabbit);
         }
     }
 }

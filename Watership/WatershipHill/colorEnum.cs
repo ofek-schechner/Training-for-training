@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
+    // Names of possible colors
     public enum Color
     {
         White,

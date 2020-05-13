@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
-    // Names of possible sexes
-    public enum Sex
+    class Class1
     {
-        Male,
-        Female
     }
 }

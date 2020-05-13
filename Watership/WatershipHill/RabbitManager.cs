@@ -27,7 +27,7 @@ namespace WatershipHill
             return RabbitManager._femaleNames[random.Next(RabbitManager._femaleNames.Count)];
         }
 
-        // Prints that a new rabbit was born
+        // Prints that the given rabbit was born
         public static void declareBirth(Rabbit rabbit)
         {
             Console.WriteLine(rabbit.sex() + " " + rabbit.color() + " Bunny " + rabbit.name() + " Was Born!");

@@ -18,11 +18,11 @@ namespace WatershipHill
             this._age = 0;
             this._sex = this.generateSex();
             this._color = this.generateColor();
-            this._name = Rabbit.generateName(this._sex);
+            this._name = this.generateName(this._sex);
         }
 
-        // Generates a name based on the rabbit's sex
-        static private string generateName(Sex sex)
+        // Generates a name based on the given rabbit's sex
+        private string generateName(Sex sex)
         {
             if (sex == Sex.Male)
             {

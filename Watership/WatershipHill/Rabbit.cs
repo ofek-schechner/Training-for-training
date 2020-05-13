@@ -21,7 +21,7 @@ namespace WatershipHill
             this.age = 0;
             this.sex = this.generateSex();
             this.color = this.generateColor();
-
+            this.name = Rabbit.generateName(this.sex);
         }
 
         public Rabbit(int age, Sex sex, Color color, string name)
@@ -31,18 +31,30 @@ namespace WatershipHill
             this.color = color;
             this.name = name;
         }
-        static private string getName(Sex sex)
+        static private string generateName(Sex sex)
         {
-            Random random = new Random();
-
             if (sex == Sex.Male)
             {
-                return Rabbit.maleNames[random.Next(Rabbit.maleNames.Count)];
+                return generateMaleName();
             }
             else
             {
-                return Rabbit.femaleNames[random.Next(Rabbit.femaleNames.Count)];
+                return generateFemaleName();
             }
+        }
+
+        static private string generateMaleName()
+        {
+            Random random = new Random();
+
+            return Rabbit.maleNames[random.Next(Rabbit.maleNames.Count)];
+        }
+
+        static private string generateFemaleName()
+        {
+            Random random = new Random();
+
+            return Rabbit.femaleNames[random.Next(Rabbit.femaleNames.Count)];
         }
 
         private Sex generateSex()
@@ -61,6 +73,11 @@ namespace WatershipHill
             int numOfColors = colors.Length;
 
             return (Color)colors.GetValue(random.Next(numOfColors));
+        }
+
+        public void declareBirth()
+        {
+            Console.WriteLine(this.sex + " " + this.color + " Bunny " + this.name + " Was Born!");
         }
     }
 }

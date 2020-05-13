@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
-    enum Sex
+    enum Color
     {
-        Male,
-        Female
+        White,
+        Black,
+        Brown,
+        Spotted
     }
 }

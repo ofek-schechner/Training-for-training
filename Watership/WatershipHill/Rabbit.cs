@@ -19,6 +19,9 @@ namespace WatershipHill
         public Rabbit()
         {
             this.age = 0;
+            this.sex = this.generateSex();
+            this.color = this.generateColor();
+
         }
 
         public Rabbit(int age, Sex sex, Color color, string name)
@@ -42,6 +45,22 @@ namespace WatershipHill
             }
         }
 
+        private Sex generateSex()
+        {
+            Random random = new Random();
+            Array sexes = Enum.GetValues(typeof(Sex));
+            int numOfSexes = sexes.Length;
 
+            return (Sex) sexes.GetValue(random.Next(numOfSexes));
+        }
+
+        private Color generateColor()
+        {
+            Random random = new Random();
+            Array colors = Enum.GetValues(typeof(Color));
+            int numOfColors = colors.Length;
+
+            return (Color)colors.GetValue(random.Next(numOfColors));
+        }
     }
 }

@@ -87,6 +87,7 @@ namespace WatershipHill
         // Commence a cycle
         public void cycle()
         {
+            this.clearLists();
             this.incrementAges();
             this.killRabbits();
         }
@@ -126,6 +127,13 @@ namespace WatershipHill
             {
                 this._rabbits.Remove(rabbit);
             }
+        }
+
+        // Clears the dead and newborn rabbits lists
+        private void clearLists()
+        {
+            this._deadRabbits.Clear();
+            this._bornRabbits.Clear();
         }
     }
 }

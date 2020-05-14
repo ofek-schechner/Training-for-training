@@ -99,5 +99,33 @@ namespace WatershipHill
         {
             this._age++;
         }
+
+        // Checks whether the rabbit is old
+        public bool isOld()
+        {
+            const int oldAge = 10;
+
+            return this._age > oldAge;
+        }
+
+        // Checks whether the rabbit is a male
+        public bool isMale()
+        {
+            return this._sex == Sex.Male;
+        }
+
+        // Checks whether the rabbit is a female
+        public bool isFemale()
+        {
+            return this._sex == Sex.Female;
+        }
+
+        // Checks whether the rabbit is mature
+        public bool isMature()
+        {
+            const int maturityAge = 2;
+
+            return this._age >= maturityAge;
+        }
     }
 }

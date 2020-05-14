@@ -33,16 +33,25 @@ namespace WatershipHill
             Console.WriteLine(rabbit.sex() + " " + rabbit.color() + " Bunny " + rabbit.name() + " Was Born!");
         }
 
+        // Prints that the given rabbit died
+        public static void declareDeath(Rabbit rabbit)
+        {
+            Console.WriteLine("Rabbit " + rabbit.name() + "died");
+        }
+
+        // Creates child with mother's color
         public static Rabbit createChild(Rabbit parent)
         {
             return new Rabbit(parent.color());
         }
 
+        // Creates a male rabbit
         public static Rabbit createMale()
         {
             return new Rabbit(Sex.Male);
         }
 
+        // Creates a female rabbit
         public static Rabbit createFemale()
         {
             return new Rabbit(Sex.Female);

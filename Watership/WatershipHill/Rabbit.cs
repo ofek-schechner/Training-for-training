@@ -93,5 +93,11 @@ namespace WatershipHill
         {
             return this._name;
         }
+
+        // Adds a year to the rabbit's age
+        public void incrementAge()
+        {
+            this._age++;
+        }
     }
 }

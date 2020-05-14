@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hill.cs" />
     <Compile Include="RabbitManager.cs" />
     <Compile Include="Rabbit.cs" />
     <Compile Include="colorEnum.cs" />

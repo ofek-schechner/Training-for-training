@@ -125,10 +125,7 @@ namespace WatershipHill
         // Remove all dead rabbits from the living rabbit's list
         private void removeDeadRabbits()
         {
-            foreach (Rabbit rabbit in this._deadRabbits)
-            {
-                this._rabbits.Remove(rabbit);
-            }
+            this._rabbits.RemoveAll(rabbit => rabbit.isOld());
         }
 
         // Clears the dead and newborn rabbits lists

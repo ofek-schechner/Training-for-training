@@ -90,6 +90,8 @@ namespace WatershipHill
             this.clearLists();
             this.incrementAges();
             this.killRabbits();
+            this.procreate();
+            this.printStatistics();
         }
 
         // Add a year to all rabbit's age
@@ -113,7 +115,7 @@ namespace WatershipHill
         {
             foreach (Rabbit rabbit in this._rabbits)
             {
-                if (rabbit.age() > 10)
+                if (rabbit.isOld())
                 {
                     this._deadRabbits.Add(rabbit);
                 }
@@ -134,6 +136,37 @@ namespace WatershipHill
         {
             this._deadRabbits.Clear();
             this._bornRabbits.Clear();
+        }
+
+        // Matches all mature male and female rabbits, and creates all children
+        private void procreate()
+        {
+            foreach (Rabbit firstParent in this._rabbits)
+            {
+                if (firstParent.isMale() && firstParent.isMature())
+                {
+                    foreach (Rabbit secondParent in this._rabbits)
+                    {
+                        if (secondParent.isFemale() && secondParent.isMature())
+                        {
+                            Rabbit child = this.giveBirth(secondParent);
+                            moveNewbornRabbit(child);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Moves the child rabbt to the born list
+        private void moveNewbornRabbit(Rabbit child)
+        {
+            this._bornRabbits.Add(child);
+        }
+
+        // Creates a child based on it's mother
+        private Rabbit giveBirth(Rabbit mother)
+        {
+            return RabbitManager.createChild(mother);
         }
     }
 }

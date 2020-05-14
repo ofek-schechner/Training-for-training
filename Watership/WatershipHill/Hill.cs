@@ -35,7 +35,7 @@ namespace WatershipHill
                 this._bornRabbits.Add(newRabbit);
             }
 
-            printStatistics();
+            this.printStatistics();
         }
 
         // Declare birth on all new rabbit's
@@ -51,8 +51,8 @@ namespace WatershipHill
         private void printStatistics()
         {
             this.printRabbitCount();
-            this.declareBirths();
             this.declareDeaths();
+            this.declareBirths();
         }
 
         // Counts all male and female rabbits, and prints the rabbit count.
@@ -155,9 +155,11 @@ namespace WatershipHill
                     }
                 }
             }
+
+            this.moveRabbits();
         }
 
-        // Moves the child rabbt to the born list
+        // Moves the child rabbt to the born and living list
         private void moveNewbornRabbit(Rabbit child)
         {
             this._bornRabbits.Add(child);
@@ -167,6 +169,15 @@ namespace WatershipHill
         private Rabbit giveBirth(Rabbit mother)
         {
             return RabbitManager.createChild(mother);
+        }
+
+        // Mave newborn rabbits to the living list
+        private void moveRabbits()
+        {
+            foreach (Rabbit child in this._bornRabbits)
+            {
+                this._rabbits.Add(child);
+            }
         }
     }
 }

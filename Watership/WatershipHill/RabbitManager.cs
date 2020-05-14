@@ -36,7 +36,7 @@ namespace WatershipHill
         // Prints that the given rabbit died
         public static void declareDeath(Rabbit rabbit)
         {
-            Console.WriteLine("Rabbit " + rabbit.name() + "died");
+            Console.WriteLine("Rabbit " + rabbit.name() + " died");
         }
 
         // Creates child with mother's color

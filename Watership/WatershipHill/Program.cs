@@ -10,8 +10,12 @@ namespace WatershipHill
     {
         static void Main(string[] args)
         {
-            Rabbit rabbit = new Rabbit();
-            RabbitManager.declareBirth(rabbit);
+            Hill hill = new Hill();
+
+            while (Console.ReadKey(true).Key == ConsoleKey.Enter)
+            {
+                hill.cycle();
+            }
         }
     }
 }

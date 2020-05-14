@@ -48,7 +48,7 @@ namespace WatershipHill
         }
 
         // Prints all the Hill's statistics.
-        public void printStatistics()
+        private void printStatistics()
         {
             this.printRabbitCount();
             this.declareBirths();
@@ -56,7 +56,7 @@ namespace WatershipHill
         }
 
         // Counts all male and female rabbits, and prints the rabbit count.
-        public void printRabbitCount()
+        private void printRabbitCount()
         {
             int totalRabbits = this._rabbits.Count;
             int maleRabbits = 0;
@@ -76,11 +76,55 @@ namespace WatershipHill
         }
 
         // Declares the death of all dead rabbits
-        public void declareDeaths()
+        private void declareDeaths()
         {
             foreach (Rabbit rabbit in this._deadRabbits)
             {
                 RabbitManager.declareDeath(rabbit);
+            }
+        }
+
+        // Commence a cycle
+        public void cycle()
+        {
+            this.incrementAges();
+            this.killRabbits();
+        }
+
+        // Add a year to all rabbit's age
+        private void incrementAges()
+        {
+            foreach (Rabbit rabbit in this._rabbits)
+            {
+                rabbit.incrementAge();
+            }
+        }
+
+        // Kills all old rabbits
+        private void killRabbits()
+        {
+            this.moveDeadRabbits();
+            this.removeDeadRabbits();
+        }
+
+        // Moves all dead rabbits to the dead rabbit's list
+        private void moveDeadRabbits()
+        {
+            foreach (Rabbit rabbit in this._rabbits)
+            {
+                if (rabbit.age() > 10)
+                {
+                    this._deadRabbits.Add(rabbit);
+                }
+            }
+        }
+
+        // Remove all dead rabbits from the living rabbit's list
+        private void removeDeadRabbits()
+        {
+            foreach (Rabbit rabbit in this._deadRabbits)
+            {
+                this._rabbits.Remove(rabbit);
             }
         }
     }

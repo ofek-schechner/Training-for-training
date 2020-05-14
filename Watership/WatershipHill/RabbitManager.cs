@@ -32,5 +32,20 @@ namespace WatershipHill
         {
             Console.WriteLine(rabbit.sex() + " " + rabbit.color() + " Bunny " + rabbit.name() + " Was Born!");
         }
+
+        public static Rabbit createChild(Rabbit parent)
+        {
+            return new Rabbit(parent.color());
+        }
+
+        public static Rabbit createMale()
+        {
+            return new Rabbit(Sex.Male);
+        }
+
+        public static Rabbit createFemale()
+        {
+            return new Rabbit(Sex.Female);
+        }
     }
 }

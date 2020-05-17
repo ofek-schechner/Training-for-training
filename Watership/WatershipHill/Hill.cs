@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
-    class Hill
+    public class Hill
     {
         private List<Rabbit> _rabbits;
         private List<Rabbit> _deadRabbits;

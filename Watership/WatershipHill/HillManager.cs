@@ -20,28 +20,31 @@ namespace WatershipHill
 
             while (true)
             {
-                while (HillManager._toggle)
+                while (isAutomationActivate())
                 {
-                    while (!Console.KeyAvailable)
-                    {
-                        hill.cycle();
-                        Thread.Sleep(waitTimeInMilisec);
-                    }
-                    if (Console.ReadKey(true).Key == ConsoleKey.Enter)
-                    {
-                        HillManager.toggleAutomation();
-                    }
+                    hill.cycle();
+                    Thread.Sleep(waitTimeInMilisec);
                 }
-                if (Console.ReadKey(true).Key == ConsoleKey.Enter)
-                {
-                    HillManager.toggleAutomation();
-                }
+                checkAutomation();
             }
         }
 
-        public static void toggleAutomation()
+        private static void toggleAutomation()
         {
             HillManager._toggle = !HillManager._toggle;
+        }
+
+        private static void checkAutomation()
+        {
+            if (Console.ReadKey(true).Key == ConsoleKey.Enter)
+            {
+                HillManager.toggleAutomation();
+            }
+        }
+
+        private static bool isAutomationActivate()
+        {
+            return ((HillManager._toggle) && (!Console.KeyAvailable));
         }
     }
 }

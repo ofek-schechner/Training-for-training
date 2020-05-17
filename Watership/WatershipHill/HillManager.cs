@@ -13,19 +13,12 @@ namespace WatershipHill
 
         public static void automateHill(Hill hill)
         {
-            const int waitTimeInMilisec = 3000;
-
             HillManager._toggle = true;
-            Thread.Sleep(waitTimeInMilisec);
 
             while (true)
             {
-                while (isAutomationActivate())
-                {
-                    hill.cycle();
-                    Thread.Sleep(waitTimeInMilisec);
-                }
-                checkAutomation();
+                HillManager.runAutomation(hill);
+                HillManager.checkAutomation();
             }
         }
 
@@ -45,6 +38,25 @@ namespace WatershipHill
         private static bool isAutomationActivate()
         {
             return ((HillManager._toggle) && (!Console.KeyAvailable));
+        }
+
+        private static void runAutomation(Hill hill)
+        {
+            HillManager.runCycles(hill);
+            HillManager.checkAutomation();
+        }
+
+        private static void runCycles(Hill hill)
+        {
+            const int waitTimeInMilisec = 3000;
+
+            Thread.Sleep(waitTimeInMilisec);
+
+            while (HillManager.isAutomationActivate())
+            {
+                hill.cycle();
+                Thread.Sleep(waitTimeInMilisec);
+            }
         }
     }
 }

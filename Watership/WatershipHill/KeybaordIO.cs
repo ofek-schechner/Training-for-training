@@ -17,7 +17,7 @@ namespace WatershipHill
         // Checks whether enter was pressed
         public static bool isEnterPressed()
         {
-            return Console.ReadKey(true).Key == ConsoleKey.Enter;
+            return (Console.ReadKey(true).Key == ConsoleKey.Enter);
         }
     }
 }

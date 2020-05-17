@@ -9,6 +9,7 @@ namespace WatershipHill
 {
     public static class HillManager
     {
+        private const int waitTimeInMilisec = 3000;
         private static bool _toggle;
 
         // Automates the given hill
@@ -16,8 +17,10 @@ namespace WatershipHill
         {
             HillManager._toggle = true;
 
+            Thread.Sleep(HillManager.waitTimeInMilisec);
+
             while (true)
-            {
+            { 
                 HillManager.runAutomation(hill);
                 HillManager.checkToggle();
             }
@@ -41,27 +44,16 @@ namespace WatershipHill
         // Checks whether the automation is active
         private static bool isAutomationActivate()
         {
-            return ((HillManager._toggle) && (!KeybaordIO.isKeyPressed()));
+             return ((HillManager._toggle) && (!KeybaordIO.isKeyPressed()));
         }
 
-        // Runs the automation
+        // Runs the given hill's automation
         private static void runAutomation(Hill hill)
         {
-            HillManager.runCycles(hill);
-            HillManager.checkToggle();
-        }
-
-        // Runs the given hill's cycle every 3 seconds
-        private static void runCycles(Hill hill)
-        {
-            const int waitTimeInMilisec = 3000;
-
-            Thread.Sleep(waitTimeInMilisec);
-
             while (HillManager.isAutomationActivate())
             {
                 hill.cycle();
-                Thread.Sleep(waitTimeInMilisec);
+                Thread.Sleep(HillManager.waitTimeInMilisec);
             }
         }
     }

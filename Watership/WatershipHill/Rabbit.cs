@@ -8,6 +8,8 @@ namespace WatershipHill
 {
     public class Rabbit
     {
+        private const int _startingAge = 0;
+
         private int _age;
         private Sex _sex;
         private Color _color;
@@ -15,7 +17,7 @@ namespace WatershipHill
  
         public Rabbit()
         {
-            this._age = 0;
+            this._age = Rabbit._startingAge;
             this._sex = this.generateSex();
             this._color = this.generateColor();
             this._name = this.generateName(this._sex);
@@ -23,7 +25,7 @@ namespace WatershipHill
 
         public Rabbit(Sex sex)
         {
-            this._age = 0;
+            this._age = Rabbit._startingAge; ;
             this._sex = sex;
             this._color = this.generateColor();
             this._name = this.generateName(this._sex);
@@ -31,7 +33,7 @@ namespace WatershipHill
 
         public Rabbit(Color color)
         {
-            this._age = 0;
+            this._age = Rabbit._startingAge; ;
             this._sex = this.generateSex();
             this._color = color;
             this._name = this.generateName(this._sex);

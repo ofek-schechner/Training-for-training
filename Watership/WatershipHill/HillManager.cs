@@ -56,5 +56,11 @@ namespace WatershipHill
                 Thread.Sleep(HillManager.waitTimeInMilisec);
             }
         }
+
+        // Adds a rabbit to the hill
+        private static void addRabbit(Hill hill, Rabbit rabbit)
+        {
+            hill.rabbits().Add(rabbit);
+        }
     }
 }

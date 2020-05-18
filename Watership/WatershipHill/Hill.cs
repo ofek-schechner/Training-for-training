@@ -176,5 +176,10 @@ namespace WatershipHill
                 this._rabbits.Add(child);
             }
         }
+
+        public List<Rabbit> rabbits()
+        {
+            return this._rabbits;
+        }
     }
 }

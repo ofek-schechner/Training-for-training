@@ -18,6 +18,12 @@ namespace WatershipHill
             return file;
         }
 
+        // Returns all child nodes of an XML file
+        public static XmlNodeList childNodes(XmlDocument file)
+        {
+            return file.DocumentElement.ChildNodes;
+        }
+
         // Reads the age attribute from an XML node
         public static int readAge(XmlNode node)
         {

@@ -9,13 +9,19 @@ namespace WatershipHill
     public static class KeybaordIO
     {
         #region METHODS
-        // Checks if a key is pressed
+        /// <summary>
+        /// Checks whether a key is pressed
+        /// </summary>
+        /// <returns> If a key was pressed </returns>
         public static bool isKeyPressed()
         {
             return Console.KeyAvailable;
         }
 
-        // Checks whether enter was pressed
+        /// <summary>
+        /// Checks whether enter was pressed
+        /// </summary>
+        /// <returns> If a enter was pressed </returns>
         public static bool isEnterPressed()
         {
             return (Console.ReadKey(true).Key == ConsoleKey.Enter);

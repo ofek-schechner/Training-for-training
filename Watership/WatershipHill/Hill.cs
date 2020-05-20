@@ -47,16 +47,20 @@ namespace WatershipHill
 
         #region METHODS
         #region STATISTICS
-        // Declare birth on all new rabbit's
+        /// <summary>
+        /// Declare the birth of all new rabbits
+        /// </summary>
         private void declareBirths()
         {
             foreach (Rabbit rabbit in this._bornRabbits)
             {
-                RabbitManager.declareBirth(rabbit);
+                rabbit.declareBirth();
             }
         }
 
-        // Prints all the Hill's statistics.
+        /// <summary>
+        /// Prints all the Hill's statistics.
+        /// </summary>
         private void printStatistics()
         {
             this.printRabbitCount();
@@ -64,7 +68,9 @@ namespace WatershipHill
             this.declareBirths();
         }
 
-        // Counts all male and female rabbits, and prints the rabbit count.
+        /// <summary>
+        /// Counts all male and female rabbits, and prints the rabbit count.
+        /// </summary>
         private void printRabbitCount()
         {
             int totalRabbits = this._rabbits.Count;
@@ -84,18 +90,22 @@ namespace WatershipHill
             Console.WriteLine("There are " + totalRabbits + " rabbits, " + maleRabbits + " of them are male, and " + femaleRabbits + " of them are female.");
         }
 
-        // Declares the death of all dead rabbits
+        /// <summary>
+        /// Declares the death of all dead rabbits
+        /// </summary>
         private void declareDeaths()
         {
             foreach (Rabbit rabbit in this._deadRabbits)
             {
-                RabbitManager.declareDeath(rabbit);
+                rabbit.declareDeath();
             }
         }
         #endregion
 
         #region CYCLE
-        // Commence a cycle
+        /// <summary>
+        /// Commence a cycle
+        /// </summary>
         public void cycle()
         {
             this.clearLists();
@@ -105,7 +115,9 @@ namespace WatershipHill
             this.printStatistics();
         }
 
-        // Add a year to all rabbit's age
+        /// <summary>
+        /// Add a year to all rabbit's age
+        /// </summary>
         private void incrementAges()
         {
             foreach (Rabbit rabbit in this._rabbits)
@@ -114,14 +126,18 @@ namespace WatershipHill
             }
         }
 
-        // Kills all old rabbits
+        /// <summary>
+        /// Kills all old rabbits
+        /// </summary>
         private void killRabbits()
         {
             this.moveDeadRabbits();
             this.removeDeadRabbits();
         }
 
-        // Moves all dead rabbits to the dead rabbit's list
+        /// <summary>
+        /// Moves all dead rabbits to the dead rabbit's list
+        /// </summary>
         private void moveDeadRabbits()
         {
             foreach (Rabbit rabbit in this._rabbits)
@@ -133,20 +149,26 @@ namespace WatershipHill
             }
         }
 
-        // Remove all dead rabbits from the living rabbit's list
+        /// <summary>
+        /// Remove all dead rabbits from the living rabbit's list
+        /// </summary>
         private void removeDeadRabbits()
         {
             this._rabbits.RemoveAll(rabbit => rabbit.isOld());
         }
 
-        // Clears the dead and newborn rabbits lists
+        /// <summary>
+        /// Clears the dead and newborn rabbits lists
+        /// </summary>
         private void clearLists()
         {
             this._deadRabbits.Clear();
             this._bornRabbits.Clear();
         }
 
-        // Matches all mature male and female rabbits, and creates all children
+        /// <summary>
+        /// Matches all mature male and female rabbits, and creates all children
+        /// </summary>
         private void procreate()
         {
             foreach (Rabbit firstParent in this._rabbits)
@@ -167,19 +189,28 @@ namespace WatershipHill
             this.moveRabbits();
         }
 
-        // Moves the child rabbt to the born and living list
+        /// <summary>
+        /// Moves the child rabbit to the born and living list
+        /// </summary>
+        /// <param name="child"> A child rabbit </param>
         private void moveNewbornRabbit(Rabbit child)
         {
             this._bornRabbits.Add(child);
         }
 
-        // Creates a child based on it's mother
+        /// <summary>
+        /// Creates a child based on it's mother
+        /// </summary>
+        /// <param name="mother"> A mother rabbit</param>
+        /// <returns> A child rabbit </returns>
         private Rabbit giveBirth(Rabbit mother)
         {
             return new Rabbit(mother.color());
         }
 
-        // Mave newborn rabbits to the living list
+        /// <summary>
+        /// Move newborn rabbits to the living list
+        /// </summary>
         private void moveRabbits()
         {
             foreach (Rabbit child in this._bornRabbits)

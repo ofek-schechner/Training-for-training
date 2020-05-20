@@ -9,9 +9,16 @@ namespace WatershipHill
 {
     public static class HillManager
     {
+        #region VALUES
         private const int WAIT_TIME_IN_MILISECONDS = 3000;
-        private static bool _toggle;
 
+        #region DATA_MEMBERS
+        private static bool _toggle;
+        #endregion
+        #endregion
+
+        #region METHODS
+        #region AUTOMATION
         // Automates the given hill
         public static void automateHill(Hill hill)
         {
@@ -56,11 +63,13 @@ namespace WatershipHill
                 Thread.Sleep(HillManager.WAIT_TIME_IN_MILISECONDS);
             }
         }
+        #endregion
 
         // Adds a rabbit to the hill
         private static void addRabbit(Hill hill, Rabbit rabbit)
         {
             hill.rabbits().Add(rabbit);
         }
+        #endregion
     }
 }

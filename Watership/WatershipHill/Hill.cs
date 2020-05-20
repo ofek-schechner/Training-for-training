@@ -94,7 +94,7 @@ namespace WatershipHill
         }
         #endregion
 
-        #region AUTOMATION
+        #region CYCLE
         // Commence a cycle
         public void cycle()
         {

@@ -9,6 +9,7 @@ namespace WatershipHill
 {
     public static class XMLFileIO
     {
+        #region METHODS 
         // Loads and returns the given XML file
         public static XmlDocument loadXMLFile(string fileName)
         {
@@ -24,6 +25,7 @@ namespace WatershipHill
             return file.DocumentElement.ChildNodes;
         }
 
+        #region attributes
         // Reads the age attribute from an XML node
         public static int readAge(XmlNode node)
         {
@@ -47,5 +49,7 @@ namespace WatershipHill
         {
             return (Color)Enum.Parse(typeof(Color), node.Attributes["Color"]?.InnerText, true);
         }
+        #endregion
+        #endregion
     }
 }

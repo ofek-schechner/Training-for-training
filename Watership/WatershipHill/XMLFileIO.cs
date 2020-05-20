@@ -4,12 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.IO;
 
 namespace WatershipHill
 {
     public static class XMLFileIO
     {
         #region METHODS 
+        /// <summary>
+        /// hecks whether the given file exists
+        /// </summary>
+        /// <param name="filePath"> The given file's path </param>
+        /// <returns> If the file exists </returns>
+        public static bool doesFileExist(string filePath)
+        {
+            return File.Exists(filePath);
+        }
+
         /// <summary>
         /// Loads the given XML file
         /// </summary>
@@ -34,6 +45,7 @@ namespace WatershipHill
         }
 
         #region ATTRIBUTES
+        #region READ_ATTRIBUTES
         /// <summary>
         /// Reads the age attribute from an XML node
         /// </summary>
@@ -73,6 +85,30 @@ namespace WatershipHill
         {
             return (Color)Enum.Parse(typeof(Color), node.Attributes["Color"]?.InnerText, true);
         }
+        #endregion
+
+        #region CHECK_ATTRIBUTES
+        public static bool hasAge(XmlNode node)
+        {
+            return ((XmlElement) node).HasAttribute("Age");
+        }
+
+        public static bool hasName(XmlNode node)
+        {
+            return ((XmlElement)node).HasAttribute("Name");
+        }
+
+        public static bool hasSex(XmlNode node)
+        {
+            return ((XmlElement)node).HasAttribute("Sex");
+        }
+
+        public static bool hasColor(XmlNode node)
+        {
+            return ((XmlElement)node).HasAttribute("Color");
+        }
+
+        #endregion
         #endregion
         #endregion
     }

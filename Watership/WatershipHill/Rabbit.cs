@@ -49,6 +49,14 @@ namespace WatershipHill
             this._color = color;
             this._name = this.generateName(this._sex);
         }
+
+        public Rabbit(int age, Sex sex, Color color, string name)
+        {
+            this._age = age;
+            this._sex = sex;
+            this._color = color;
+            this._name = name;
+        }
         #endregion
 
         #region METHODS

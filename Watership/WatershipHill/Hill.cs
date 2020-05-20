@@ -8,10 +8,16 @@ namespace WatershipHill
 {
     public class Hill
     {
+        #region VALUES
+        #region DATA_MEMBERS
         private List<Rabbit> _rabbits;
         private List<Rabbit> _deadRabbits;
         private List<Rabbit> _bornRabbits;
 
+        #endregion
+        #endregion
+
+        #region CONSTRUCTORS
         public Hill()
         {
             const int NUM_OF_FEMALES = 3;
@@ -37,7 +43,10 @@ namespace WatershipHill
 
             this.printStatistics();
         }
+        #endregion
 
+        #region METHODS
+        #region STATISTICS
         // Declare birth on all new rabbit's
         private void declareBirths()
         {
@@ -83,7 +92,9 @@ namespace WatershipHill
                 RabbitManager.declareDeath(rabbit);
             }
         }
+        #endregion
 
+        #region AUTOMATION
         // Commence a cycle
         public void cycle()
         {
@@ -176,10 +187,12 @@ namespace WatershipHill
                 this._rabbits.Add(child);
             }
         }
+        #endregion
 
         public List<Rabbit> rabbits()
         {
             return this._rabbits;
         }
+        #endregion
     }
 }

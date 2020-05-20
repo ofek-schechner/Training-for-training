@@ -8,13 +8,19 @@ namespace WatershipHill
 {
     public class Rabbit
     {
+        #region VALUES
         private const int STARTING_AGE = 0;
 
+        #region DATA_MEMBERS
         private int _age;
         private Sex _sex;
         private Color _color;
         private string _name;
- 
+
+        #endregion
+        #endregion
+
+        #region CONSTRUCTORS
         public Rabbit()
         {
             this._age = Rabbit.STARTING_AGE;
@@ -38,7 +44,9 @@ namespace WatershipHill
             this._color = color;
             this._name = this.generateName(this._sex);
         }
+        #endregion
 
+        #region METHODS
         // Generates a name based on the given rabbit's sex
         private string generateName(Sex sex)
         {
@@ -55,11 +63,11 @@ namespace WatershipHill
         // Generates the rabbit's sex
         private Sex generateSex()
         {
+            const int NUM_OF_SEXES = 2;
             Random random = new Random();
             Array sexes = Enum.GetValues(typeof(Sex));
-            int numOfSexes = sexes.Length;
 
-            return (Sex) sexes.GetValue(random.Next(numOfSexes));
+            return (Sex) sexes.GetValue(random.Next(NUM_OF_SEXES));
         }
 
         // Generates the rabbit's color
@@ -72,6 +80,7 @@ namespace WatershipHill
             return (Color) colors.GetValue(random.Next(numOfColors));
         }
 
+        #endregion
         // Returns the rabbit's age
         public int age()
         {

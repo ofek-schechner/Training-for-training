@@ -52,7 +52,12 @@ namespace WatershipHill
         #endregion
 
         #region METHODS
-        // Generates a name based on the given rabbit's sex
+
+        /// <summary>
+        /// Generates a name based on the sex
+        /// </summary>
+        /// <param name="sex"> The rabbit's sex </param>
+        /// <returns> The name </returns>
         private string generateName(Sex sex)
         {
             if (sex == Sex.Male)
@@ -65,7 +70,10 @@ namespace WatershipHill
             }
         }
 
-        // Generates the rabbit's sex
+        /// <summary>
+        /// Generates the rabbit's sex
+        /// </summary>
+        /// <returns> The rabbit's sex </returns>
         private Sex generateSex()
         {
             const int NUM_OF_SEXES = 2;
@@ -75,7 +83,10 @@ namespace WatershipHill
             return (Sex) sexes.GetValue(random.Next(NUM_OF_SEXES));
         }
 
-        // Generates the rabbit's color
+        /// <summary>
+        /// Generates the rabbit's color
+        /// </summary>
+        /// <returns> The rabbit's color </returns>
         private Color generateColor()
         {
             Random random = new Random();
@@ -85,7 +96,10 @@ namespace WatershipHill
             return (Color) colors.GetValue(random.Next(numOfColors));
         }
 
-        // Generates a male rabbit's name
+        /// <summary>
+        /// Generates a male rabbit's name
+        /// </summary>
+        /// <returns> The rabbit's name </returns>
         public string generateMaleName()
         {
             Random random = new Random();
@@ -93,7 +107,10 @@ namespace WatershipHill
             return Rabbit._maleNames[random.Next(Rabbit._maleNames.Count)];
         }
 
-        // Generates a female rabbit's name
+        /// <summary>
+        /// Generates a female rabbit's name
+        /// </summary>
+        /// <returns> The rabbit's name </returns>
         public string generateFemaleName()
         {
             Random random = new Random();
@@ -101,25 +118,34 @@ namespace WatershipHill
             return Rabbit._femaleNames[random.Next(Rabbit._femaleNames.Count)];
         }
 
-        // Prints that the given rabbit was born
+        /// <summary>
+        /// Prints that the rabbit was born
+        /// </summary>
         public void declareBirth()
         {
             Console.WriteLine(this.sex() + " " + this.color() + " Bunny " + this.name() + " Was Born!");
         }
 
-        // Prints that the given rabbit died
+        /// <summary>
+        /// Prints that the rabbit died
+        /// </summary>
         public void declareDeath()
         {
             Console.WriteLine("Rabbit " + this.name() + " died");
         }
 
-        // Adds a year to the rabbit's age
+        /// <summary>
+        /// Adds a year to the rabbit's age
+        /// </summary>
         public void incrementAge()
         {
             this._age++;
         }
 
-        // Checks whether the rabbit is old
+        /// <summary>
+        /// Checks whether the rabbit is old
+        /// </summary>
+        /// <returns> Is the rabbit old </returns>
         public bool isOld()
         {
             const int OLD_AGE = 10;
@@ -127,19 +153,28 @@ namespace WatershipHill
             return this._age > OLD_AGE;
         }
 
-        // Checks whether the rabbit is a male
+        /// <summary>
+        /// Checks whether the rabbit is a male
+        /// </summary>
+        /// <returns> Is the rabbit male </returns>
         public bool isMale()
         {
             return this._sex == Sex.Male;
         }
 
-        // Checks whether the rabbit is a female
+        /// <summary>
+        /// Checks whether the rabbit is a female
+        /// </summary>
+        /// <returns> Is the rabbit female </returns>
         public bool isFemale()
         {
             return this._sex == Sex.Female;
         }
 
-        // Checks whether the rabbit is mature
+        /// <summary>
+        /// Checks whether the rabbit is mature
+        /// </summary>
+        /// <returns> Is the rabbit mature </returns>
         public bool isMature()
         {
             const int MATURITY_AGE = 2;
@@ -148,6 +183,7 @@ namespace WatershipHill
         }
 
         #endregion
+
         // Returns the rabbit's age
         public int age()
         {

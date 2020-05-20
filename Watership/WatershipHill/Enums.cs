@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace WatershipHill
 {
-    // Names of possible colors
+    /// <summary>
+    /// Names of possible colors
+    /// </summary>
     public enum Color
     {
         White,
@@ -15,7 +17,9 @@ namespace WatershipHill
         Spotted
     }
 
-    // Names of possible sexes
+    /// <summary>
+    /// Names of possible sexes
+    /// </summary>
     public enum Sex
     {
         Male,

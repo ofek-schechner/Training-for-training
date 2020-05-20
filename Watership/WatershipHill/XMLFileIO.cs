@@ -10,7 +10,11 @@ namespace WatershipHill
     public static class XMLFileIO
     {
         #region METHODS 
-        // Loads and returns the given XML file
+        /// <summary>
+        /// Loads the given XML file
+        /// </summary>
+        /// <param name="fileName"> The name of the file </param>
+        /// <returns>The file content </returns>
         public static XmlDocument loadXMLFile(string fileName)
         {
             XmlDocument file = new XmlDocument();
@@ -19,32 +23,52 @@ namespace WatershipHill
             return file;
         }
 
-        // Returns all child nodes of an XML file
+        /// <summary>
+        /// Gets all child nodes of an XML file
+        /// </summary>
+        /// <param name="file"> The file </param>
+        /// <returns> Child nodes of an XML file </returns>
         public static XmlNodeList childNodes(XmlDocument file)
         {
             return file.DocumentElement.ChildNodes;
         }
 
-        #region attributes
-        // Reads the age attribute from an XML node
+        #region ATTRIBUTES
+        /// <summary>
+        /// Reads the age attribute from an XML node
+        /// </summary>
+        /// <param name="node"> The given node </param>
+        /// <returns> The age attribute </returns>
         public static int readAge(XmlNode node)
         {
             return int.Parse(node.Attributes["Age"]?.InnerText);
         }
 
-        // Reads the name attribute from an XML node
+        /// <summary>
+        /// Reads the name attribute from an XML node
+        /// </summary>
+        /// <param name="node"> The given node </param>
+        /// <returns> The name attribute </returns>
         public static string readName(XmlNode node)
         {
             return node.Attributes["Name"]?.InnerText;
         }
 
-        // Reads the sex attribute from an XML node
+        /// <summary>
+        /// Reads the sex attribute from an XML node
+        /// </summary>
+        /// <param name="node"> The given node </param>
+        /// <returns> The sex attribute </returns>
         public static Sex readSex(XmlNode node)
         {
             return (Sex)Enum.Parse(typeof(Sex), node.Attributes["Sex"]?.InnerText, true);
         }
 
-        // Reads the color attribute from an XML node
+        /// <summary>
+        /// Reads the color attribute from an XML node
+        /// </summary>
+        /// <param name="node"> The given node </param>
+        /// <returns> The color attribute </returns>
         public static Color readColor(XmlNode node)
         {
             return (Color)Enum.Parse(typeof(Color), node.Attributes["Color"]?.InnerText, true);

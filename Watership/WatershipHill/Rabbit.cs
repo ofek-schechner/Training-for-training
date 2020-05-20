@@ -11,6 +11,11 @@ namespace WatershipHill
         #region VALUES
         private const int STARTING_AGE = 0;
 
+        #region STATIC_VALUES
+        static private List<string> _maleNames = new List<string>() { "Bob", "Dan", "Greg" };
+        static private List<string> _femaleNames = new List<string>() { "Dana", "Anna", "Noa" };
+        #endregion
+
         #region DATA_MEMBERS
         private int _age;
         private Sex _sex;
@@ -52,11 +57,11 @@ namespace WatershipHill
         {
             if (sex == Sex.Male)
             {
-                return RabbitManager.generateMaleName();
+                return this.generateMaleName();
             }
             else
             {
-                return RabbitManager.generateFemaleName();
+                return this.generateFemaleName();
             }
         }
 
@@ -80,29 +85,32 @@ namespace WatershipHill
             return (Color) colors.GetValue(random.Next(numOfColors));
         }
 
-        #endregion
-        // Returns the rabbit's age
-        public int age()
+        // Generates a male rabbit's name
+        public string generateMaleName()
         {
-            return this._age;
+            Random random = new Random();
+
+            return Rabbit._maleNames[random.Next(Rabbit._maleNames.Count)];
         }
 
-        // Returns the rabbit's sex
-        public Sex sex()
+        // Generates a female rabbit's name
+        public string generateFemaleName()
         {
-            return this._sex;
+            Random random = new Random();
+
+            return Rabbit._femaleNames[random.Next(Rabbit._femaleNames.Count)];
         }
 
-        // Returns the rabbit's color
-        public Color color()
+        // Prints that the given rabbit was born
+        public void declareBirth()
         {
-            return this._color;
+            Console.WriteLine(this.sex() + " " + this.color() + " Bunny " + this.name() + " Was Born!");
         }
 
-        // Returns the rabbit's name
-        public string name()
+        // Prints that the given rabbit died
+        public void declareDeath()
         {
-            return this._name;
+            Console.WriteLine("Rabbit " + this.name() + " died");
         }
 
         // Adds a year to the rabbit's age
@@ -137,6 +145,31 @@ namespace WatershipHill
             const int MATURITY_AGE = 2;
 
             return this._age >= MATURITY_AGE;
+        }
+
+        #endregion
+        // Returns the rabbit's age
+        public int age()
+        {
+            return this._age;
+        }
+
+        // Returns the rabbit's sex
+        public Sex sex()
+        {
+            return this._sex;
+        }
+
+        // Returns the rabbit's color
+        public Color color()
+        {
+            return this._color;
+        }
+
+        // Returns the rabbit's name
+        public string name()
+        {
+            return this._name;
         }
     }
 }

@@ -29,14 +29,14 @@ namespace WatershipHill
 
             for (int males = 0; males < NUM_OF_MALES; males++)
             {
-                Rabbit newRabbit = RabbitManager.createMale();
+                Rabbit newRabbit = new Rabbit(Sex.Male);
                 this._rabbits.Add(newRabbit);
                 this._bornRabbits.Add(newRabbit);
             }
 
             for (int females = 0; females < NUM_OF_FEMALES; females++)
             {
-                Rabbit newRabbit = RabbitManager.createFemale();
+                Rabbit newRabbit = new Rabbit(Sex.Female);
                 this._rabbits.Add(newRabbit);
                 this._bornRabbits.Add(newRabbit);
             }
@@ -176,7 +176,7 @@ namespace WatershipHill
         // Creates a child based on it's mother
         private Rabbit giveBirth(Rabbit mother)
         {
-            return RabbitManager.createChild(mother);
+            return new Rabbit(mother.color());
         }
 
         // Mave newborn rabbits to the living list

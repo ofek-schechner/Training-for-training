@@ -19,7 +19,10 @@ namespace WatershipHill
 
         #region METHODS
         #region AUTOMATION
-        // Automates the given hill
+        /// <summary>
+        /// Automates the given hill
+        /// </summary>
+        /// <param name="hill"> A hill </param>
         public static void automateHill(Hill hill)
         {
             HillManager._toggle = true;
@@ -33,13 +36,17 @@ namespace WatershipHill
             }
         }
 
-        // Toggles the state of the automation
+        /// <summary>
+        /// Toggles the state of the automation
+        /// </summary>
         private static void toggleAutomation()
         {
             HillManager._toggle = !HillManager._toggle;
         }
 
-        // Checks whether the automation was toggled
+        /// <summary>
+        /// Checks whether the automation was toggled
+        /// </summary>
         private static void checkToggle()
         {
             if (KeybaordIO.isEnterPressed())
@@ -48,13 +55,19 @@ namespace WatershipHill
             }
         }
 
-        // Checks whether the automation is active
+        /// <summary>
+        /// Checks whether the automation is active
+        /// </summary>
+        /// <returns> If the automation is active </returns>
         private static bool isAutomationActivate()
         {
              return ((HillManager._toggle) && (!KeybaordIO.isKeyPressed()));
         }
 
-        // Runs the given hill's automation
+        /// <summary>
+        /// Runs the given hill's automation
+        /// </summary>
+        /// <param name="hill"> A hill </param>
         private static void runAutomation(Hill hill)
         {
             while (HillManager.isAutomationActivate())
@@ -65,7 +78,11 @@ namespace WatershipHill
         }
         #endregion
 
-        // Adds a rabbit to the hill
+        /// <summary>
+        /// Adds a rabbit to the given hill
+        /// </summary>
+        /// <param name="hill"> A hill </param>
+        /// <param name="rabbit"> A rabbit </param>
         private static void addRabbit(Hill hill, Rabbit rabbit)
         {
             hill.rabbits().Add(rabbit);

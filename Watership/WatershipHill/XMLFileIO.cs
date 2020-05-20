@@ -107,7 +107,6 @@ namespace WatershipHill
         {
             return ((XmlElement)node).HasAttribute("Color");
         }
-
         #endregion
         #endregion
         #endregion

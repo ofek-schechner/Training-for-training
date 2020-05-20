@@ -11,9 +11,7 @@ namespace WatershipHill
     {
         static void Main(string[] args)
         {
-            Hill hill = new Hill();
-
-            HillManager.automateHill(hill);
+            HillManager.runHill();
         }
     }
 }

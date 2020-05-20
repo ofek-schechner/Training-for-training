@@ -18,23 +18,20 @@ namespace WatershipHill
         #endregion
 
         #region CONSTRUCTORS
-        public Hill()
+        public Hill(int numOfMales, int numOfFemales)
         {
-            const int NUM_OF_FEMALES = 3;
-            const int NUM_OF_MALES = 2;
-
             this._rabbits = new List<Rabbit>();
             this._deadRabbits = new List<Rabbit>();
             this._bornRabbits = new List<Rabbit>();
 
-            for (int males = 0; males < NUM_OF_MALES; males++)
+            for (int males = 0; males < numOfMales; males++)
             {
                 Rabbit newRabbit = new Rabbit(Sex.Male);
                 this._rabbits.Add(newRabbit);
                 this._bornRabbits.Add(newRabbit);
             }
 
-            for (int females = 0; females < NUM_OF_FEMALES; females++)
+            for (int females = 0; females < numOfFemales; females++)
             {
                 Rabbit newRabbit = new Rabbit(Sex.Female);
                 this._rabbits.Add(newRabbit);
@@ -42,6 +39,13 @@ namespace WatershipHill
             }
 
             this.printStatistics();
+        }
+
+        public Hill()
+        {
+            this._rabbits = new List<Rabbit>();
+            this._deadRabbits = new List<Rabbit>();
+            this._bornRabbits = new List<Rabbit>();
         }
         #endregion
 

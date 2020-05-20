@@ -13,9 +13,7 @@ namespace WatershipHill
         #region VALUES
         private const int WAIT_TIME_IN_MILISECONDS = 3000;
 
-        #region DATA_MEMBERS
         private static bool _toggle;
-        #endregion
         #endregion
 
         #region METHODS
@@ -90,6 +88,11 @@ namespace WatershipHill
             hill.rabbits().Add(rabbit);
         }
 
+        /// <summary>
+        /// Generates a hill from a file
+        /// </summary>
+        /// <param name="fileName"> Name of the XML file </param>
+        /// <param name="hill"> An empty hill </param>
         private static void generateHill(string fileName, Hill hill)
         {
             XmlNodeList nodes = HillManager.fileNodes(fileName);
@@ -103,6 +106,11 @@ namespace WatershipHill
             }
         }
 
+        /// <summary>
+        /// Gets all nodes from a file
+        /// </summary>
+        /// <param name="fileName"> The file </param>
+        /// <returns> The child nodes </returns>
         private static XmlNodeList fileNodes(string fileName)
         {
             XmlDocument file = XMLFileIO.loadXMLFile(fileName);
@@ -110,21 +118,26 @@ namespace WatershipHill
             return XMLFileIO.childNodes(file);
         }
 
+        /// <summary>
+        /// Checks whether the node has all attributes
+        /// </summary>
+        /// <param name="node"> A node </param>
+        /// <returns> If the node has all needed attributes </returns>
         private static bool hasAttributes(XmlNode node)
         {
-            bool hasAge;
-            bool hasName;
-            bool hasSex;
-            bool hasColor;
-
-            hasAge = XMLFileIO.hasAge(node);
-            hasName = XMLFileIO.hasName(node);
-            hasSex = XMLFileIO.hasSex(node);
-            hasColor = XMLFileIO.hasColor(node);
+            bool hasAge = XMLFileIO.hasAge(node);
+            bool hasName = XMLFileIO.hasName(node);
+            bool hasSex = XMLFileIO.hasSex(node);
+            bool hasColor = XMLFileIO.hasColor(node);
 
             return (hasAge && hasName && hasSex && hasColor);
         }
 
+        /// <summary>
+        /// Creates a rabbit using the node's attributes and adds it to the hill
+        /// </summary>
+        /// <param name="hill"> A hill </param>
+        /// <param name="node"> A node </param>
         private static void createRabbit(Hill hill, XmlNode node)
         {
             int age = XMLFileIO.readAge(node);
@@ -135,6 +148,9 @@ namespace WatershipHill
             addRabbit(hill, new Rabbit(age, sex, color, name));
         }
 
+        /// <summary>
+        /// Runs the hill
+        /// </summary>
         public static void runHill()
         {
             const string FILE_NAME ="InitialState.xml";

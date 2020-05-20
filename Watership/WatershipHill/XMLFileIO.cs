@@ -88,21 +88,41 @@ namespace WatershipHill
         #endregion
 
         #region CHECK_ATTRIBUTES
+        /// <summary>
+        /// Checks whether the node has an age attribute
+        /// </summary>
+        /// <param name="node"> A node </param>
+        /// <returns> If the nade has an age attribute </returns>
         public static bool hasAge(XmlNode node)
         {
             return ((XmlElement) node).HasAttribute("Age");
         }
 
+        /// <summary>
+        /// Checks whether the node has a name attribute
+        /// </summary>
+        /// <param name="node"> A node </param>
+        /// <returns> If the nade has a name attribute </returns>
         public static bool hasName(XmlNode node)
         {
             return ((XmlElement)node).HasAttribute("Name");
         }
 
+        /// <summary>
+        /// Checks whether the node has a sex attribute
+        /// </summary>
+        /// <param name="node"> A node </param>
+        /// <returns> If the nade has a sex attribute </returns>
         public static bool hasSex(XmlNode node)
         {
             return ((XmlElement)node).HasAttribute("Sex");
         }
 
+        /// <summary>
+        /// Checks whether the node has a color attribute
+        /// </summary>
+        /// <param name="node"> A node </param>
+        /// <returns> If the nade has a color attribute </returns>
         public static bool hasColor(XmlNode node)
         {
             return ((XmlElement)node).HasAttribute("Color");

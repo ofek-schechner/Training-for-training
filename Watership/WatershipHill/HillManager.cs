@@ -9,7 +9,7 @@ namespace WatershipHill
 {
     public static class HillManager
     {
-        private const int waitTimeInMilisec = 3000;
+        private const int WAIT_TIME_IN_MILISECONDS = 3000;
         private static bool _toggle;
 
         // Automates the given hill
@@ -17,7 +17,7 @@ namespace WatershipHill
         {
             HillManager._toggle = true;
 
-            Thread.Sleep(HillManager.waitTimeInMilisec);
+            Thread.Sleep(HillManager.WAIT_TIME_IN_MILISECONDS);
 
             while (true)
             { 
@@ -53,7 +53,7 @@ namespace WatershipHill
             while (HillManager.isAutomationActivate())
             {
                 hill.cycle();
-                Thread.Sleep(HillManager.waitTimeInMilisec);
+                Thread.Sleep(HillManager.WAIT_TIME_IN_MILISECONDS);
             }
         }
 

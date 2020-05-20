@@ -52,6 +52,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sexEnum.cs" />
+    <Compile Include="XMLFileIO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

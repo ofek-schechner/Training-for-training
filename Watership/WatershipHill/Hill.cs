@@ -14,21 +14,21 @@ namespace WatershipHill
 
         public Hill()
         {
-            const int numOfFemales = 3;
-            const int numOfMales = 2;
+            const int NUM_OF_FEMALES = 3;
+            const int NUM_OF_MALES = 2;
 
             this._rabbits = new List<Rabbit>();
             this._deadRabbits = new List<Rabbit>();
             this._bornRabbits = new List<Rabbit>();
 
-            for (int males = 0; males < numOfMales; males++)
+            for (int males = 0; males < NUM_OF_MALES; males++)
             {
                 Rabbit newRabbit = RabbitManager.createMale();
                 this._rabbits.Add(newRabbit);
                 this._bornRabbits.Add(newRabbit);
             }
 
-            for (int females = 0; females < numOfFemales; females++)
+            for (int females = 0; females < NUM_OF_FEMALES; females++)
             {
                 Rabbit newRabbit = RabbitManager.createFemale();
                 this._rabbits.Add(newRabbit);

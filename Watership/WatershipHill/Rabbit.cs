@@ -8,7 +8,7 @@ namespace WatershipHill
 {
     public class Rabbit
     {
-        private const int _startingAge = 0;
+        private const int STARTING_AGE = 0;
 
         private int _age;
         private Sex _sex;
@@ -17,7 +17,7 @@ namespace WatershipHill
  
         public Rabbit()
         {
-            this._age = Rabbit._startingAge;
+            this._age = Rabbit.STARTING_AGE;
             this._sex = this.generateSex();
             this._color = this.generateColor();
             this._name = this.generateName(this._sex);
@@ -25,7 +25,7 @@ namespace WatershipHill
 
         public Rabbit(Sex sex)
         {
-            this._age = Rabbit._startingAge; ;
+            this._age = Rabbit.STARTING_AGE; ;
             this._sex = sex;
             this._color = this.generateColor();
             this._name = this.generateName(this._sex);
@@ -33,7 +33,7 @@ namespace WatershipHill
 
         public Rabbit(Color color)
         {
-            this._age = Rabbit._startingAge; ;
+            this._age = Rabbit.STARTING_AGE; ;
             this._sex = this.generateSex();
             this._color = color;
             this._name = this.generateName(this._sex);
@@ -105,9 +105,9 @@ namespace WatershipHill
         // Checks whether the rabbit is old
         public bool isOld()
         {
-            const int oldAge = 10;
+            const int OLD_AGE = 10;
 
-            return this._age > oldAge;
+            return this._age > OLD_AGE;
         }
 
         // Checks whether the rabbit is a male
@@ -125,9 +125,9 @@ namespace WatershipHill
         // Checks whether the rabbit is mature
         public bool isMature()
         {
-            const int maturityAge = 2;
+            const int MATURITY_AGE = 2;
 
-            return this._age >= maturityAge;
+            return this._age >= MATURITY_AGE;
         }
     }
 }

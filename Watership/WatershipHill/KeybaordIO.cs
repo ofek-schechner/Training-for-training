@@ -8,6 +8,7 @@ namespace WatershipHill
 {
     public static class KeybaordIO
     {
+        #region METHODS
         // Checks if a key is pressed
         public static bool isKeyPressed()
         {
@@ -19,5 +20,6 @@ namespace WatershipHill
         {
             return (Console.ReadKey(true).Key == ConsoleKey.Enter);
         }
+        #endregion
     }
 }

@@ -120,6 +120,9 @@ namespace WatershipHill
             }
         }
 
+        /// <summary>
+        /// Prints all the rabbits' stats
+        /// </summary>
         private void allRabbitsStats()
         {
             foreach (Rabbit rabbit in this._rabbits)
@@ -128,6 +131,9 @@ namespace WatershipHill
             }
         }
 
+        /// <summary>
+        /// Sorts the rabbit's list by age
+        /// </summary>
         private void sortByAge()
         {
             this._rabbits.Sort((first, second) => first.age().CompareTo(second.age()));
@@ -254,10 +260,15 @@ namespace WatershipHill
             }
         }
 
+        /// <summary>
+        /// Makes all mutant rabbits bite regular rabbits
+        /// </summary>
         private void mutateRabbits()
         {
             bool hasBitten;
             Rabbit bittenRabbit;
+
+            this.separateMutants();
 
             foreach (Rabbit mutant in this._mutantRabbits)
             {
@@ -276,6 +287,11 @@ namespace WatershipHill
             }
         }
 
+        /// <summary>
+        /// Gets a random rabbit from the given list
+        /// </summary>
+        /// <param name="rabbits"> A list of rabbits </param>
+        /// <returns> A random rabbit </returns>
         private Rabbit randomRabbit(List<Rabbit> rabbits)
         {
             int numberOfRabbits = rabbits.Count();
@@ -284,6 +300,9 @@ namespace WatershipHill
             return rabbits[random.Next(numberOfRabbits)];
         }
 
+        /// <summary>
+        /// Separates the mutants from the regular rabbits
+        /// </summary>
         private void separateMutants()
         {
             foreach(Rabbit rabbit in this._rabbits)

@@ -21,7 +21,7 @@ namespace WatershipHill
         private Sex _sex;
         private Color _color;
         private string _name;
-
+        private bool _isRadioactiveMutantVampireBunny;
         #endregion
         #endregion
 
@@ -32,6 +32,7 @@ namespace WatershipHill
             this._sex = this.generateSex();
             this._color = this.generateColor();
             this._name = this.generateName(this._sex);
+            this.mutateRabbit();
         }
 
         public Rabbit(Sex sex)
@@ -40,6 +41,7 @@ namespace WatershipHill
             this._sex = sex;
             this._color = this.generateColor();
             this._name = this.generateName(this._sex);
+            this.mutateRabbit();
         }
 
         public Rabbit(Color color)
@@ -48,6 +50,7 @@ namespace WatershipHill
             this._sex = this.generateSex();
             this._color = color;
             this._name = this.generateName(this._sex);
+            this.mutateRabbit();
         }
 
         public Rabbit(int age, Sex sex, Color color, string name)
@@ -56,6 +59,7 @@ namespace WatershipHill
             this._sex = sex;
             this._color = color;
             this._name = name;
+            this.mutateRabbit();
         }
         #endregion
 
@@ -156,9 +160,17 @@ namespace WatershipHill
         /// <returns> Is the rabbit old </returns>
         public bool isOld()
         {
+            const int OLD_MUTATION_AGE = 50;
             const int OLD_AGE = 10;
 
-            return this._age > OLD_AGE;
+            if (this._isRadioactiveMutantVampireBunny)
+            {
+                return this._age > OLD_MUTATION_AGE;
+            }
+            else
+            {
+                return this._age > OLD_AGE;
+            }
         }
 
         /// <summary>
@@ -190,6 +202,21 @@ namespace WatershipHill
             return this._age >= MATURITY_AGE;
         }
 
+
+        private void mutateRabbit()
+        {
+            const double CHANCE_OF_BECOMING_MUTANT = 2.0;
+            Random random = new Random();
+
+            if (random.Next(0,100) <= CHANCE_OF_BECOMING_MUTANT)
+            {
+                this._isRadioactiveMutantVampireBunny = true;
+            }
+            else
+            {
+                this._isRadioactiveMutantVampireBunny = false;
+            }
+        }
         #endregion
 
         // Returns the rabbit's age
@@ -214,6 +241,12 @@ namespace WatershipHill
         public string name()
         {
             return this._name;
+        }
+
+        // Returns whether the rabbit is a mutant
+        public bool isRadioactiveMutantVampireBunny()
+        {
+            return this._isRadioactiveMutantVampireBunny;
         }
     }
 }

@@ -92,7 +92,7 @@ namespace WatershipHill
         /// Checks whether the node has an age attribute
         /// </summary>
         /// <param name="node"> A node </param>
-        /// <returns> If the nade has an age attribute </returns>
+        /// <returns> If the node has an age attribute </returns>
         public static bool hasAge(XmlNode node)
         {
             return ((XmlElement) node).HasAttribute("Age");
@@ -102,7 +102,7 @@ namespace WatershipHill
         /// Checks whether the node has a name attribute
         /// </summary>
         /// <param name="node"> A node </param>
-        /// <returns> If the nade has a name attribute </returns>
+        /// <returns> If the node has a name attribute </returns>
         public static bool hasName(XmlNode node)
         {
             return ((XmlElement)node).HasAttribute("Name");
@@ -112,7 +112,7 @@ namespace WatershipHill
         /// Checks whether the node has a sex attribute
         /// </summary>
         /// <param name="node"> A node </param>
-        /// <returns> If the nade has a sex attribute </returns>
+        /// <returns> If the node has a sex attribute </returns>
         public static bool hasSex(XmlNode node)
         {
             return ((XmlElement)node).HasAttribute("Sex");
@@ -122,7 +122,7 @@ namespace WatershipHill
         /// Checks whether the node has a color attribute
         /// </summary>
         /// <param name="node"> A node </param>
-        /// <returns> If the nade has a color attribute </returns>
+        /// <returns> If the node has a color attribute </returns>
         public static bool hasColor(XmlNode node)
         {
             return ((XmlElement)node).HasAttribute("Color");

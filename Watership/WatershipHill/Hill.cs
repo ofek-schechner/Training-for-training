@@ -179,17 +179,17 @@ namespace WatershipHill
         }
 
         /// <summary>
-        /// Matches all mature male and female rabbits, and creates all children
+        /// Matches all mature, non-mutant, male and female rabbits, and creates all children
         /// </summary>
         private void procreate()
         {
             foreach (Rabbit firstParent in this._rabbits)
             {
-                if (firstParent.isMale() && firstParent.isMature())
+                if (firstParent.isMale() && firstParent.isMature() && !firstParent.isRadioactiveMutantVampireBunny())
                 {
                     foreach (Rabbit secondParent in this._rabbits)
                     {
-                        if (secondParent.isFemale() && secondParent.isMature())
+                        if (secondParent.isFemale() && secondParent.isMature() && !secondParent.isRadioactiveMutantVampireBunny())
                         {
                             Rabbit child = this.giveBirth(secondParent);
                             moveNewbornRabbit(child);

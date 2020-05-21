@@ -144,6 +144,7 @@ namespace WatershipHill
             this.incrementAges();
             this.killRabbits();
             this.procreate();
+            this.mutateRabbits();
             this.printStatistics();
         }
 

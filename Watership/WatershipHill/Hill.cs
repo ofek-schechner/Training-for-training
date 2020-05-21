@@ -230,6 +230,11 @@ namespace WatershipHill
                 this._rabbits.Add(child);
             }
         }
+
+        private void sortByAge()
+        {
+            this._rabbits.Sort((first, second) => first.age().CompareTo(second.age()));
+        }
         #endregion
 
         public List<Rabbit> rabbits()

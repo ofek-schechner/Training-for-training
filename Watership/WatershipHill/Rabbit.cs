@@ -202,7 +202,9 @@ namespace WatershipHill
             return this._age >= MATURITY_AGE;
         }
 
-
+        /// <summary>
+        /// Makes the rabbit a mutant randomly
+        /// </summary>
         private void mutateRabbit()
         {
             const double CHANCE_OF_BECOMING_MUTANT = 2.0;
@@ -219,11 +221,17 @@ namespace WatershipHill
             }
         }
 
+        /// <summary>
+        /// Makes the rabbit a mutant
+        /// </summary>
         public void makeMutant()
         {
             this._isRadioactiveMutantVampireBunny = true;
         }
 
+        /// <summary>
+        /// Prints the rabbit's stats
+        /// </summary>
         public void printStatistics()
         {
             string baseStatistc = "Name: " + this._name + ", Age: " + this._age + ", Color: " + this._color + ", Sex: " + this._sex + ", ";

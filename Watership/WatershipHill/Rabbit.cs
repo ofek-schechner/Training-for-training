@@ -217,6 +217,11 @@ namespace WatershipHill
                 this._isRadioactiveMutantVampireBunny = false;
             }
         }
+
+        public void makeMutant()
+        {
+            this._isRadioactiveMutantVampireBunny = true;
+        }
         #endregion
 
         // Returns the rabbit's age

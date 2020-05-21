@@ -73,25 +73,33 @@ namespace WatershipHill
         }
 
         /// <summary>
-        /// Counts all male and female rabbits, and prints the rabbit count.
+        /// Counts all male, female and mutant rabbits, and prints the rabbit count.
         /// </summary>
         private void printRabbitCount()
         {
             int totalRabbits = this._rabbits.Count;
             int maleRabbits = 0;
             int femaleRabbits = 0;
+            int mutantRabbits = 0;
 
             foreach (Rabbit rabbit in this._rabbits)
             {
-                if (rabbit.sex() == Sex.Male)
+                if (rabbit.isMale())
                 {
                     maleRabbits++;
+                }
+                if (rabbit.isRadioactiveMutantVampireBunny())
+                {
+                    mutantRabbits++;
                 }
             }
 
             femaleRabbits = totalRabbits - maleRabbits;
 
-            Console.WriteLine("There are " + totalRabbits + " rabbits, " + maleRabbits + " of them are male, and " + femaleRabbits + " of them are female.");
+            Console.WriteLine("There are " + totalRabbits + " rabbits, " 
+                              + maleRabbits + " of them are male, " 
+                              + femaleRabbits + " of them are female, and " 
+                              + mutantRabbits + " are radioactive mutant vampire rabbits.");
         }
 
         /// <summary>

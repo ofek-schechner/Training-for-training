@@ -70,6 +70,7 @@ namespace WatershipHill
             this.printRabbitCount();
             this.declareDeaths();
             this.declareBirths();
+            this.allRabbitsStats();
         }
 
         /// <summary>
@@ -110,6 +111,14 @@ namespace WatershipHill
             foreach (Rabbit rabbit in this._deadRabbits)
             {
                 rabbit.declareDeath();
+            }
+        }
+
+        private void allRabbitsStats()
+        {
+            foreach (Rabbit rabbit in this._rabbits)
+            {
+                rabbit.printStatistics();
             }
         }
         #endregion

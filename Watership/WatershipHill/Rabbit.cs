@@ -222,6 +222,23 @@ namespace WatershipHill
         {
             this._isRadioactiveMutantVampireBunny = true;
         }
+
+        public void printStatistics()
+        {
+            string baseStatistc = "Name: " + this._name + ", Age: " + this._age + ", Color: " + this._color + ", Sex: " + this._sex + ", ";
+            string isMutantStat;
+
+            if (this._isRadioactiveMutantVampireBunny)
+            {
+                isMutantStat = "Is a mutant.";
+            }
+            else
+            {
+                isMutantStat = "Is not a mutant.";
+            }
+
+            Console.WriteLine(baseStatistc + isMutantStat);
+        }
         #endregion
 
         // Returns the rabbit's age

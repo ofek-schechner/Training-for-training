@@ -85,7 +85,7 @@ namespace WatershipHill
         /// <param name="rabbit"> A rabbit </param>
         private static void addRabbit(Hill hill, Rabbit rabbit)
         {
-            hill.rabbits().Add(rabbit);
+            hill.Rabbits.Add(rabbit);
         }
 
         /// <summary>

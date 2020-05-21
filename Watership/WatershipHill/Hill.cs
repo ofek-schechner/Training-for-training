@@ -16,12 +16,21 @@ namespace WatershipHill
         private List<Rabbit> _mutantRabbits;
         private List<Rabbit> _regularRabbits;
         #endregion
+
+        #region PROPERTIES
+        public List<Rabbit> Rabbits
+        {
+            get { return this._rabbits; }
+            private set { this._rabbits = value; }
+        }
+
+        #endregion
         #endregion
 
         #region CONSTRUCTORS
         public Hill(int numOfMales, int numOfFemales)
         {
-            this._rabbits = new List<Rabbit>();
+            this.Rabbits = new List<Rabbit>();
             this._deadRabbits = new List<Rabbit>();
             this._bornRabbits = new List<Rabbit>();
             this._mutantRabbits = new List<Rabbit>();
@@ -30,14 +39,14 @@ namespace WatershipHill
             for (int males = 0; males < numOfMales; males++)
             {
                 Rabbit newRabbit = new Rabbit(Sex.Male);
-                this._rabbits.Add(newRabbit);
+                this.Rabbits.Add(newRabbit);
                 this._bornRabbits.Add(newRabbit);
             }
 
             for (int females = 0; females < numOfFemales; females++)
             {
                 Rabbit newRabbit = new Rabbit(Sex.Female);
-                this._rabbits.Add(newRabbit);
+                this.Rabbits.Add(newRabbit);
                 this._bornRabbits.Add(newRabbit);
             }
 
@@ -46,7 +55,7 @@ namespace WatershipHill
 
         public Hill()
         {
-            this._rabbits = new List<Rabbit>();
+            this.Rabbits = new List<Rabbit>();
             this._deadRabbits = new List<Rabbit>();
             this._bornRabbits = new List<Rabbit>();
             this._mutantRabbits = new List<Rabbit>();
@@ -84,18 +93,18 @@ namespace WatershipHill
         /// </summary>
         private void printRabbitCount()
         {
-            int totalRabbits = this._rabbits.Count;
+            int totalRabbits = this.Rabbits.Count;
             int maleRabbits = 0;
             int femaleRabbits = 0;
             int mutantRabbits = 0;
 
-            foreach (Rabbit rabbit in this._rabbits)
+            foreach (Rabbit rabbit in this.Rabbits)
             {
                 if (rabbit.isMale())
                 {
                     maleRabbits++;
                 }
-                if (rabbit.isRadioactiveMutantVampireBunny())
+                if (rabbit.IsRadioactiveMutantVampireBunny)
                 {
                     mutantRabbits++;
                 }
@@ -125,7 +134,7 @@ namespace WatershipHill
         /// </summary>
         private void allRabbitsStats()
         {
-            foreach (Rabbit rabbit in this._rabbits)
+            foreach (Rabbit rabbit in this.Rabbits)
             {
                 rabbit.printStatistics();
             }
@@ -136,7 +145,7 @@ namespace WatershipHill
         /// </summary>
         private void sortByAge()
         {
-            this._rabbits.Sort((first, second) => first.age().CompareTo(second.age()));
+            Rabbits.Sort((first, second) => first.Age.CompareTo(second.Age));
         }
         #endregion
 
@@ -159,7 +168,7 @@ namespace WatershipHill
         /// </summary>
         private void incrementAges()
         {
-            foreach (Rabbit rabbit in this._rabbits)
+            foreach (Rabbit rabbit in this.Rabbits)
             {
                 rabbit.incrementAge();
             }
@@ -179,7 +188,7 @@ namespace WatershipHill
         /// </summary>
         private void moveDeadRabbits()
         {
-            foreach (Rabbit rabbit in this._rabbits)
+            foreach (Rabbit rabbit in this.Rabbits)
             {
                 if (rabbit.isOld())
                 {
@@ -193,7 +202,7 @@ namespace WatershipHill
         /// </summary>
         private void removeDeadRabbits()
         {
-            this._rabbits.RemoveAll(rabbit => rabbit.isOld());
+            this.Rabbits.RemoveAll(rabbit => rabbit.isOld());
         }
 
         /// <summary>
@@ -212,13 +221,13 @@ namespace WatershipHill
         /// </summary>
         private void procreate()
         {
-            foreach (Rabbit firstParent in this._rabbits)
+            foreach (Rabbit firstParent in this.Rabbits)
             {
-                if (firstParent.isMale() && firstParent.isMature() && !firstParent.isRadioactiveMutantVampireBunny())
+                if (firstParent.isMale() && firstParent.isMature() && !firstParent.IsRadioactiveMutantVampireBunny)
                 {
-                    foreach (Rabbit secondParent in this._rabbits)
+                    foreach (Rabbit secondParent in this.Rabbits)
                     {
-                        if (secondParent.isFemale() && secondParent.isMature() && !secondParent.isRadioactiveMutantVampireBunny())
+                        if (secondParent.isFemale() && secondParent.isMature() && !secondParent.IsRadioactiveMutantVampireBunny)
                         {
                             Rabbit child = this.giveBirth(secondParent);
                             moveNewbornRabbit(child);
@@ -246,7 +255,7 @@ namespace WatershipHill
         /// <returns> A child rabbit </returns>
         private Rabbit giveBirth(Rabbit mother)
         {
-            return new Rabbit(mother.color());
+            return new Rabbit(mother.Color);
         }
 
         /// <summary>
@@ -256,7 +265,7 @@ namespace WatershipHill
         {
             foreach (Rabbit child in this._bornRabbits)
             {
-                this._rabbits.Add(child);
+                this.Rabbits.Add(child);
             }
         }
 
@@ -278,7 +287,7 @@ namespace WatershipHill
                 {
                     bittenRabbit = this.randomRabbit(this._regularRabbits);
 
-                    if (!bittenRabbit.isRadioactiveMutantVampireBunny())
+                    if (!bittenRabbit.IsRadioactiveMutantVampireBunny)
                     {
                         bittenRabbit.makeMutant();
                         hasBitten = true;
@@ -305,9 +314,9 @@ namespace WatershipHill
         /// </summary>
         private void separateMutants()
         {
-            foreach(Rabbit rabbit in this._rabbits)
+            foreach(Rabbit rabbit in this.Rabbits)
             {
-                if (rabbit.isRadioactiveMutantVampireBunny())
+                if (rabbit.IsRadioactiveMutantVampireBunny)
                 {
                     this._mutantRabbits.Add(rabbit);
                 }
@@ -318,11 +327,6 @@ namespace WatershipHill
             }
         }
         #endregion
-
-        public List<Rabbit> rabbits()
-        {
-            return this._rabbits;
-        }
         #endregion
     }
 }

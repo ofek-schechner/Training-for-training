@@ -23,42 +23,74 @@ namespace WatershipHill
         private string _name;
         private bool _isRadioactiveMutantVampireBunny;
         #endregion
+
+        #region PROPERTIES
+        public int Age
+        {
+            get { return this._age; }
+            private set { this._age = value; }
+        }
+
+        public Sex Sex
+        {
+            get { return this._sex; }
+            private set { this._sex = value; }
+        }
+
+        public Color Color
+        {
+            get { return this._color; }
+            private set { this._color = value; }
+        }
+
+        public string Name
+        {
+            get { return this._name; }
+            private set { this._name = value; }
+        }
+
+        public bool IsRadioactiveMutantVampireBunny
+        {
+            get { return this._isRadioactiveMutantVampireBunny; }
+            private set { this._isRadioactiveMutantVampireBunny = value; }
+        }
+        #endregion
         #endregion
 
         #region CONSTRUCTORS
         public Rabbit()
         {
-            this._age = Rabbit.STARTING_AGE;
-            this._sex = this.generateSex();
-            this._color = this.generateColor();
-            this._name = this.generateName(this._sex);
+            this.Age = Rabbit.STARTING_AGE;
+            this.Sex = this.generateSex();
+            this.Color = this.generateColor();
+            this.Name = this.generateName(this.Sex);
             this.mutateRabbit();
         }
 
         public Rabbit(Sex sex)
         {
-            this._age = Rabbit.STARTING_AGE; ;
-            this._sex = sex;
-            this._color = this.generateColor();
-            this._name = this.generateName(this._sex);
+            this.Age = Rabbit.STARTING_AGE; ;
+            this.Sex = sex;
+            this.Color = this.generateColor();
+            this.Name = this.generateName(this.Sex);
             this.mutateRabbit();
         }
 
         public Rabbit(Color color)
         {
-            this._age = Rabbit.STARTING_AGE; ;
-            this._sex = this.generateSex();
-            this._color = color;
-            this._name = this.generateName(this._sex);
+            this.Age = Rabbit.STARTING_AGE; ;
+            this.Sex = this.generateSex();
+            this.Color = color;
+            this.Name = this.generateName(this.Sex);
             this.mutateRabbit();
         }
 
         public Rabbit(int age, Sex sex, Color color, string name)
         {
-            this._age = age;
-            this._sex = sex;
-            this._color = color;
-            this._name = name;
+            this.Age = age;
+            this.Sex = sex;
+            this.Color = color;
+            this.Name = name;
             this.mutateRabbit();
         }
         #endregion
@@ -135,7 +167,7 @@ namespace WatershipHill
         /// </summary>
         public void declareBirth()
         {
-            Console.WriteLine(this.sex() + " " + this.color() + " Bunny " + this.name() + " Was Born!");
+            Console.WriteLine(this.Sex + " " + this.Color + " Bunny " + this.Name + " Was Born!");
         }
 
         /// <summary>
@@ -143,7 +175,7 @@ namespace WatershipHill
         /// </summary>
         public void declareDeath()
         {
-            Console.WriteLine("Rabbit " + this.name() + " died");
+            Console.WriteLine("Rabbit " + this.Name + " died");
         }
 
         /// <summary>
@@ -151,7 +183,7 @@ namespace WatershipHill
         /// </summary>
         public void incrementAge()
         {
-            this._age++;
+            this.Age++;
         }
 
         /// <summary>
@@ -163,13 +195,13 @@ namespace WatershipHill
             const int OLD_MUTATION_AGE = 50;
             const int OLD_AGE = 10;
 
-            if (this._isRadioactiveMutantVampireBunny)
+            if (this.IsRadioactiveMutantVampireBunny)
             {
-                return this._age > OLD_MUTATION_AGE;
+                return this.Age > OLD_MUTATION_AGE;
             }
             else
             {
-                return this._age > OLD_AGE;
+                return this.Age > OLD_AGE;
             }
         }
 
@@ -179,7 +211,7 @@ namespace WatershipHill
         /// <returns> Is the rabbit male </returns>
         public bool isMale()
         {
-            return this._sex == Sex.Male;
+            return this.Sex == Sex.Male;
         }
 
         /// <summary>
@@ -188,7 +220,7 @@ namespace WatershipHill
         /// <returns> Is the rabbit female </returns>
         public bool isFemale()
         {
-            return this._sex == Sex.Female;
+            return this.Sex == Sex.Female;
         }
 
         /// <summary>
@@ -199,7 +231,7 @@ namespace WatershipHill
         {
             const int MATURITY_AGE = 2;
 
-            return this._age >= MATURITY_AGE;
+            return this.Age >= MATURITY_AGE;
         }
 
         /// <summary>
@@ -212,12 +244,12 @@ namespace WatershipHill
 
             if (random.Next(0,100) <= CHANCE_OF_BECOMING_MUTANT)
             {
-                this._isRadioactiveMutantVampireBunny = true;
+                this.IsRadioactiveMutantVampireBunny = true;
                 Console.WriteLine("A mutant rabbit was born!");
             }
             else
             {
-                this._isRadioactiveMutantVampireBunny = false;
+                this.IsRadioactiveMutantVampireBunny = false;
             }
         }
 
@@ -226,7 +258,7 @@ namespace WatershipHill
         /// </summary>
         public void makeMutant()
         {
-            this._isRadioactiveMutantVampireBunny = true;
+            this.IsRadioactiveMutantVampireBunny = true;
         }
 
         /// <summary>
@@ -234,10 +266,10 @@ namespace WatershipHill
         /// </summary>
         public void printStatistics()
         {
-            string baseStatistc = "Name: " + this._name + ", Age: " + this._age + ", Color: " + this._color + ", Sex: " + this._sex + ", ";
+            string baseStatistc = "Name: " + this.Name + ", Age: " + this.Age + ", Color: " + this.Color + ", Sex: " + this.Sex + ", ";
             string isMutantStat;
 
-            if (this._isRadioactiveMutantVampireBunny)
+            if (this.IsRadioactiveMutantVampireBunny)
             {
                 isMutantStat = "Is a mutant.";
             }
@@ -249,35 +281,5 @@ namespace WatershipHill
             Console.WriteLine(baseStatistc + isMutantStat);
         }
         #endregion
-
-        // Returns the rabbit's age
-        public int age()
-        {
-            return this._age;
-        }
-
-        // Returns the rabbit's sex
-        public Sex sex()
-        {
-            return this._sex;
-        }
-
-        // Returns the rabbit's color
-        public Color color()
-        {
-            return this._color;
-        }
-
-        // Returns the rabbit's name
-        public string name()
-        {
-            return this._name;
-        }
-
-        // Returns whether the rabbit is a mutant
-        public bool isRadioactiveMutantVampireBunny()
-        {
-            return this._isRadioactiveMutantVampireBunny;
-        }
     }
 }

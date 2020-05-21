@@ -211,6 +211,7 @@ namespace WatershipHill
             if (random.Next(0,100) <= CHANCE_OF_BECOMING_MUTANT)
             {
                 this._isRadioactiveMutantVampireBunny = true;
+                Console.WriteLine("A mutant rabbit was born!");
             }
             else
             {

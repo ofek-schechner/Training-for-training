@@ -13,7 +13,8 @@ namespace WatershipHill
         private List<Rabbit> _rabbits;
         private List<Rabbit> _deadRabbits;
         private List<Rabbit> _bornRabbits;
-
+        private List<Rabbit> _mutantRabbits;
+        private List<Rabbit> _regularRabbits;
         #endregion
         #endregion
 
@@ -23,6 +24,8 @@ namespace WatershipHill
             this._rabbits = new List<Rabbit>();
             this._deadRabbits = new List<Rabbit>();
             this._bornRabbits = new List<Rabbit>();
+            this._mutantRabbits = new List<Rabbit>();
+            this._regularRabbits = new List<Rabbit>();
 
             for (int males = 0; males < numOfMales; males++)
             {
@@ -46,6 +49,8 @@ namespace WatershipHill
             this._rabbits = new List<Rabbit>();
             this._deadRabbits = new List<Rabbit>();
             this._bornRabbits = new List<Rabbit>();
+            this._mutantRabbits = new List<Rabbit>();
+            this._regularRabbits = new List<Rabbit>();
         }
         #endregion
 
@@ -67,6 +72,7 @@ namespace WatershipHill
         /// </summary>
         private void printStatistics()
         {
+            this.sortByAge();
             this.printRabbitCount();
             this.declareDeaths();
             this.declareBirths();
@@ -120,6 +126,11 @@ namespace WatershipHill
             {
                 rabbit.printStatistics();
             }
+        }
+
+        private void sortByAge()
+        {
+            this._rabbits.Sort((first, second) => first.age().CompareTo(second.age()));
         }
         #endregion
 
@@ -185,6 +196,8 @@ namespace WatershipHill
         {
             this._deadRabbits.Clear();
             this._bornRabbits.Clear();
+            this._mutantRabbits.Clear();
+            this._regularRabbits.Clear();
         }
 
         /// <summary>
@@ -240,9 +253,49 @@ namespace WatershipHill
             }
         }
 
-        private void sortByAge()
+        private void mutateRabbits()
         {
-            this._rabbits.Sort((first, second) => first.age().CompareTo(second.age()));
+            bool hasBitten;
+            Rabbit bittenRabbit;
+
+            foreach (Rabbit mutant in this._mutantRabbits)
+            {
+               hasBitten = false;
+
+                while (!hasBitten)
+                {
+                    bittenRabbit = this.randomRabbit(this._regularRabbits);
+
+                    if (!bittenRabbit.isRadioactiveMutantVampireBunny())
+                    {
+                        bittenRabbit.makeMutant();
+                        hasBitten = true;
+                    }
+                }
+            }
+        }
+
+        private Rabbit randomRabbit(List<Rabbit> rabbits)
+        {
+            int numberOfRabbits = rabbits.Count();
+            Random random = new Random();
+
+            return rabbits[random.Next(numberOfRabbits)];
+        }
+
+        private void separateMutants()
+        {
+            foreach(Rabbit rabbit in this._rabbits)
+            {
+                if (rabbit.isRadioactiveMutantVampireBunny())
+                {
+                    this._mutantRabbits.Add(rabbit);
+                }
+                else
+                {
+                    this._regularRabbits.Add(rabbit);
+                }
+            }
         }
         #endregion
 
